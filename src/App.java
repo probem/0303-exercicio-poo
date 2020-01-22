@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
@@ -10,15 +11,10 @@ public class App {
         int vezes = scanner.nextInt();
 
         Dado dado = new Dado(lados);
+        Sorteador sorteador = new Sorteador(dado);
+        Resultado resultado = sorteador.sortear(vezes);
 
-        int soma = 0;
-        for(int i = 0; i < vezes; i++) {
-            int numero = dado.jogar();
-
-            soma += numero;
-            System.out.println(numero);
-        }
-
-        System.out.println("A soma é: " + soma);
+        System.out.println(resultado.getNumeros());
+        System.out.println(resultado.getSoma());
     }
 }
