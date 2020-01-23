@@ -10,11 +10,16 @@ public class App {
         System.out.println("Digite a quantidade de vezes: ");
         int vezes = scanner.nextInt();
 
-        Dado dado = new Dado(lados);
-        Sorteador sorteador = new Sorteador(dado);
-        Resultado resultado = sorteador.sortear(vezes);
+        try {
+            Dado dado = new Dado(lados);
+            Sorteador sorteador = new Sorteador(dado);
+            Resultado resultado = sorteador.sortear(vezes);
 
-        System.out.println(resultado.getNumeros());
-        System.out.println(resultado.getSoma());
+            System.out.println(resultado.getNumeros());
+            System.out.println(resultado.getSoma());
+        } catch (DadoInvalidoException e){
+            System.out.println("O número de lados digitado é inválido");
+            System.out.println("O número de lados deve ser 4, 6, 8, 10, 12 ou 20");
+        }
     }
 }
